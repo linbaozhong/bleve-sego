@@ -2,10 +2,7 @@
 bleve search  use sego tokenizer
 
 # 说明
-
-	第一个项目使用的是gojieba，由于有C依赖，再加上作者很久没有更新相关Bug，因此选择了sego拓展了Bleve分词插件，
-	与github.com/tukdesk/bleve-sego-tokenizer不同的是，并没有修改任何sego源码，这样可以无缝获取sego新功能了，
-	欢迎使用！
+fork自[sunvim](https://github.com/sunvim/bleve-sego)，因为有效的bug，例如：在“中华人民共和国”搜“中华”不能命中。是[sego](https://github.com/huichen/sego)的问题，因为sego是按词库从后往前匹配分词，匹配到“中华人民共和国”就停止分词了
 
 # 安装/更新
 

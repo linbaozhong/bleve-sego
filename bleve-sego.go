@@ -5,7 +5,7 @@ import (
 
 	"github.com/blevesearch/bleve/v2/analysis"
 	"github.com/blevesearch/bleve/v2/registry"
-	"github.com/huichen/sego"
+	"github.com/linbaozhong/sego"
 )
 
 func init() {

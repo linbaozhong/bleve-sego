@@ -24,6 +24,14 @@ func (s *SegoTokenizer) loadDictory(dict string) {
 func (s *SegoTokenizer) Tokenize(sentence []byte) analysis.TokenStream {
 	result := make(analysis.TokenStream, 0)
 	words := s.tker.Segment(sentence)
+	
+	sgmt := sego.SegmentsToSlice(words,true)
+	for _, word := range sgmt {
+		if len(word) > 6 {
+			words = append(words, s.tker.InternalSegment([]byte(word),true)...)
+		}
+	}
+
 	for pos, word := range words {
 		token := analysis.Token{
 			Start:    word.Start(),

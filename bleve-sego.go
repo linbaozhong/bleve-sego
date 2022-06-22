@@ -25,19 +25,11 @@ func (s *SegoTokenizer) Tokenize(sentence []byte) analysis.TokenStream {
 	result := make(analysis.TokenStream, 0)
 	words := s.tker.Segment(sentence)
 	for pos, word := range words {
-// 		//word.Token().Text()
-// 		segments := word.Token().Segments()
-// 		terms := make([]sego.Segment,0,len(segments))
-// 		for _, segment := range segments {
-// 			terms = append(terms,*segment)
-// 		}
-
 		token := analysis.Token{
 			Start:    word.Start(),
 			End:      word.End(),
 			Position: pos + 1,
 			Term:     []byte(word.Token().Text()),
-// 			Term:     []byte(sego.SegmentsToString(terms,true)),
 			Type:     analysis.Ideographic,
 		}
 		result = append(result, &token)
